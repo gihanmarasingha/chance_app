@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maximum Run Length Histogram</title>
+  <!-- Add Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    /* Style for the rounded box */
+    .input-box {
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px;
+      text-align: center;
+    }
+    /* Style for aligning text and button vertically */
+    label, input, button {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Maximum Run Length Histogram</h1>
+
+  <!-- Rounded box for inputs and button -->
+  <div class="input-box">
+    <label for="m">Number of experiments:</label>
+    <input type="number" id="m" name="m" value="1000">
+    
+    <label for="n">Number of tosses per experiment:</label>
+    <input type="number" id="n" name="n" value="50">
+    
+    <button onclick="generateHistogram()">Generate Histogram</button>
+  </div>
+
+  <!-- Plotly chart will be drawn inside this DIV -->
+  <div id="plotlyDiv"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
