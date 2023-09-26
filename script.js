@@ -67,3 +67,23 @@ function generateHistogram() {
     Plotly.newPlot('plotlyDiv', [trace], layout);
 }
 generateHistogram();
+
+// Debounce function
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+      const context = this, args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
+        func.apply(context, args);
+      }, wait);
+    };
+  }
+
+window.addEventListener("resize", debounce(function() {
+Plotly.relayout('plotlyDiv', {
+    'xaxis.autorange': true,
+    'yaxis.autorange': true
+});
+generateHistogram();
+}, 250));  // 250 milliseconds delay
