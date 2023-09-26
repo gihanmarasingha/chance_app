@@ -25,9 +25,14 @@ function updateOutputAndGenerateHistogram(sliderID, outputID) {
     const output = document.getElementById(outputID);
     output.textContent = slider.value;
   
+    // Update output in real-time
     slider.addEventListener("input", function() {
       output.textContent = this.value;
-      generateHistogram();  // Regenerate histogram when slider value changes
+    });
+  
+    // Regenerate histogram when slider is released
+    slider.addEventListener("change", function() {
+      generateHistogram();
     });
   }
   
@@ -61,4 +66,4 @@ function generateHistogram() {
     };
     Plotly.newPlot('plotlyDiv', [trace], layout);
 }
-  
+generateHistogram();
