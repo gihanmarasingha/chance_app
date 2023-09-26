@@ -10,15 +10,24 @@
       border: 2px solid #ccc;
       border-radius: 12px;
       padding: 16px;
-      margin: 16px auto;  /* Center the box */
-      text-align: left;
-      width: 50%;  /* Take up only 50% of the page width */
+      margin: 16px auto;
+      text-align: center;
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
-    /* Style for aligning text and button vertically */
-    label, input[type="range"], button {
-      display: block;  /* Make them block-level elements */
-      margin-top: 8px;
-      margin-bottom: 8px;
+    /* Style for each stack */
+    .input-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Style for the button */
+    .button-container {
+      text-align: center;
+      margin-top: 16px;
     }
   </style>
 </head>
@@ -26,16 +35,22 @@
 
   <h1>Maximum Run Length Histogram</h1>
 
-  <!-- Rounded box for inputs and button -->
+  <!-- Rounded box for inputs -->
   <div class="input-box">
-    <label for="m">Number of experiments:</label>
-    <input type="range" id="m" name="m" min="100" max="5000" value="1000">
-    <output id="m-output">1000</output>
-    
-    <label for="n">Number of tosses per experiment:</label>
-    <input type="range" id="n" name="n" min="10" max="100" value="50">
-    <output id="n-output">50</output>
-    
+    <div class="input-stack">
+      <label for="m">Number of experiments:</label>
+      <input type="range" id="m" name="m" min="100" max="5000" value="1000">
+      <output id="m-output">1000</output>
+    </div>
+    <div class="input-stack">
+      <label for="n">Number of tosses per experiment:</label>
+      <input type="range" id="n" name="n" min="10" max="100" value="50">
+      <output id="n-output">50</output>
+    </div>
+  </div>
+
+  <!-- Button container -->
+  <div class="button-container">
     <button onclick="generateHistogram()">Generate Histogram</button>
   </div>
 
