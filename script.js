@@ -57,17 +57,58 @@ function generateHistogram() {
     document.getElementById("meanValue").textContent = meanMaxRun.toFixed(2);
     console.log(`Mean Maximum Run Length: ${meanMaxRun}`);
 
-    const trace = {
-    x: maxRunLengths,
-    type: 'histogram',
+    // Manually calculate histogram bins
+    const binSize = 1; // You can adjust this value
+    const bins = {};
+    maxRunLengths.forEach((length) => {
+      const bin = Math.floor(length / binSize) * binSize;
+      bins[bin] = (bins[bin] || 0) + 1;
+    });
+  
+    const x = Object.keys(bins).map(Number);
+    const y = Object.values(bins);
+  
+    // Create the histogram trace
+    const histogramTrace = {
+      x: x,
+      y: y,
+      type: 'bar',
+      opacity: 0.6,
+      marker: {
+        color: 'blue',
+      },
+      hoverinfro: 'y',
+      name: 'Frequency',
     };
-    const layout = {
-    title: 'Histogram of Maximum Run Lengths',
-    xaxis: { title: 'Maximum Run Length' },
-    yaxis: { title: 'Frequency' },
+  
+    // Create the smooth curve trace
+    const curveTrace = {
+      x: x,
+      y: y,
+      type: 'scatter',
+      mode: 'lines',
+      line: { shape: 'spline' },
+      opacity: 0.6,
+      marker: { color: 'red' },
+      hoverinfo: 'skip',
     };
-    Plotly.newPlot('plotlyDiv', [trace], layout);
+  
+    // Combine the histogram and curve traces
+    const data = [histogramTrace, curveTrace];
+  
+    // Layout options
+    const plotLayout = {
+      title: 'Maximum Run Length Histogram',
+      xaxis: { title: 'Run Length' },
+      yaxis: { title: 'Frequency' },
+      showlegend: false
+    };
+  
+    // Generate the Plotly chart
+    Plotly.newPlot('plotlyDiv', data, plotLayout);
 }
+  
+
 generateHistogram();
 
 // Debounce function
