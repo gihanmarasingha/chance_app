@@ -28,22 +28,29 @@
       font-size: 1em;
     }
     /* Style for the rounded box */
-    .control {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  @media (min-width: 768px) {
+    
 
-/* Style the swipe-friendly controls */
-.swipe-control {
-  width: 100%;
-  margin: 10px 0;
+  }
+  
+  @media (max-width : 767px) {
+    .control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style the swipe-friendly controls */
+  .swipe-control {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
     /* Style for the button */
     .button-container {
