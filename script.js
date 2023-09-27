@@ -165,9 +165,65 @@ function updateValueAndHistogram(event) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+
+  if (tabName === 'Clusters') {
+    generateClusters();
+  }
   }
 
   
   // Show the first tab by default
 document.getElementById("CoinToss").style.display = "block";
 
+function generateClusters() {
+  const numDiseaseCases = 1000; // Number of red points
+  const numFactories = 10; // Number of blue points
+
+  const xRed = [];
+  const yRed = [];
+  const xBlue = [];
+  const yBlue = [];
+
+  // Generate red points for disease cases
+  for (let i = 0; i < numDiseaseCases; i++) {
+    xRed.push(Math.random() * 100);
+    yRed.push(Math.random() * 100);
+  }
+
+  // Generate blue points for factories
+  for (let i = 0; i < numFactories; i++) {
+    xBlue.push(Math.random() * 100);
+    yBlue.push(Math.random() * 100);
+  }
+
+  const redPoints = {
+    x: xRed,
+    y: yRed,
+    mode: 'markers',
+    type: 'scatter',
+    marker: { color: 'red' }
+  };
+
+  const bluePoints = {
+    x: xBlue,
+    y: yBlue,
+    mode: 'markers',
+    type: 'scatter',
+    marker: { color: 'blue' }
+  };
+
+  const clusterData = [redPoints, bluePoints];
+
+  const clusterLayout = {
+    title: 'Disease Cases and Factories',
+    xaxis: { title: 'X-axis' },
+    yaxis: { title: 'Y-axis' }
+  };
+
+  Plotly.newPlot('clusterPlot', clusterData, clusterLayout);
+}
+
+// Show the first tab by default
+document.getElementById("CoinToss").style.display = "block";
+// Generate the initial cluster plot
+generateClusters();
