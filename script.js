@@ -102,8 +102,6 @@ function generateHistogram() {
       xaxis: { title: 'Run Length' },
       yaxis: { title: 'Frequency' },
       showlegend: false,
-      // Set the width dynamically based on the window's inner width
-      width: window.innerWidth <= 767 ? window.innerWidth : null,
     };
 
   if (window.innerWidth <= 767) {
