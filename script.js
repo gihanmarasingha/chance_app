@@ -127,13 +127,19 @@ function debounce(func, wait) {
     };
   }
 
-window.addEventListener("resize", debounce(function() {
-Plotly.relayout('plotlyDiv', {
-    'xaxis.autorange': true,
-    'yaxis.autorange': true
-});
-generateHistogram();
-}, 250));  // 250 milliseconds delay
+  window.addEventListener("resize", debounce(function() {
+    if (document.getElementById("CoinToss").style.display === "block") {
+      // Redraw the coin toss plot
+      Plotly.relayout('plotlyDiv', {
+        'xaxis.autorange': true,
+        'yaxis.autorange': true
+      });
+      generateHistogram();
+    } else if (document.getElementById("Clusters").style.display === "block") {
+      // Redraw the clusters plot
+      generateClusters();
+    }
+  }, 250));  // 250 milliseconds delay
 
 function updateValueAndHistogram(event) {
     const output = document.getElementById(event.target.id + "Value");
@@ -175,15 +181,27 @@ function updateValueAndHistogram(event) {
   // Show the first tab by default
 document.getElementById("CoinToss").style.display = "block";
 
+
+
+
+/****************
+ * 
+ *  Cluster stuff
+ * 
+ ******************/
+
+// Global variables to store cluster data
+let redX, redY, blueX, blueY;
+
+// Generate data when the document is loaded
+document.addEventListener("DOMContentLoaded", function() {
+  redX = Array.from({ length: 1000 }, () => Math.random());
+  redY = Array.from({ length: 1000 }, () => Math.random());
+  blueX = Array.from({ length: 10 }, () => Math.random());
+  blueY = Array.from({ length: 10 }, () => Math.random());
+});
+
 function generateClusters() {
-  // Generate 1000 red points for disease cases
-  const redX = Array.from({ length: 1000 }, () => Math.random());
-  const redY = Array.from({ length: 1000 }, () => Math.random());
-
-  // Generate 10 blue points for factories
-  const blueX = Array.from({ length: 10 }, () => Math.random());
-  const blueY = Array.from({ length: 10 }, () => Math.random());
-
   // Create the trace for disease cases
   const redTrace = {
     x: redX,
