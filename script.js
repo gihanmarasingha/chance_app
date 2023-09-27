@@ -191,12 +191,18 @@ document.getElementById("CoinToss").style.display = "block";
  ******************/
 
 // Global variables to store cluster data
-let redX, redY, blueX, blueY;
+let redX, redY, blueX, blueY, numDiseasePoints;
+
+if (window.innerWidth <= 767) {
+  numDiseasePoints = 500;  // For mobile screens
+} else {
+  numDiseasePoints = 1000;  // For desktop screens
+}
 
 // Generate data when the document is loaded
 document.addEventListener("DOMContentLoaded", function() {
-  redX = Array.from({ length: 1000 }, () => Math.random());
-  redY = Array.from({ length: 1000 }, () => Math.random());
+  redX = Array.from({ length: numDiseasePoints }, () => Math.random());
+  redY = Array.from({ length: numDiseasePoints }, () => Math.random());
   blueX = Array.from({ length: 10 }, () => Math.random());
   blueY = Array.from({ length: 10 }, () => Math.random());
 });
@@ -230,7 +236,12 @@ function generateClusters() {
     xaxis: { showgrid: false, zeroline: false, showticklabels: false },
     yaxis: { showgrid: false, zeroline: false, showticklabels: false },
     showlegend: true,
-    legend: { x: 1, xanchor: 'right', y: 1 },
+    legend: {
+      x: 0.9,  // x-position (1 means all the way to the right)
+      xanchor: 'right',  // anchor point for x (left means the left side of the legend box will be at x)
+      y: -0.2,  // y-position (1 means all the way to the top)
+      yanchor: 'bottom'  // anchor point for y (bottom means the bottom of the legend box will be at y)
+    },
     shapes: [
       {
         type: 'rect',
