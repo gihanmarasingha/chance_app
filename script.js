@@ -44,6 +44,7 @@ function updateOutputAndGenerateHistogram(sliderID, outputID) {
 function generateHistogram() {
     const m = parseInt(document.getElementById("m").value);
     const n = parseInt(document.getElementById("n").value);
+
     const maxRunLengths = [];
 
     for (let i = 0; i < m; i++) {
@@ -53,6 +54,7 @@ function generateHistogram() {
     }
 
     const meanMaxRun = maxRunLengths.reduce((a, b) => a + b, 0) / m;
+    document.getElementById("meanValue").textContent = meanMaxRun.toFixed(2);
     console.log(`Mean Maximum Run Length: ${meanMaxRun}`);
 
     const trace = {

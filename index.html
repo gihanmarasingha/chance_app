@@ -8,6 +8,24 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
+      padding-left: 10%;  
+      padding-right: 10%; 
+      margin: 0;
+    }
+    /* Style for the banner */
+    header {
+      background: linear-gradient(to bottom, #007bff, #0056b3);
+      color: white;
+      padding: 16px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    header p {
+      margin: 0;
+      font-size: 1em;
     }
     /* Style for the rounded box */
     .input-box {
@@ -41,7 +59,13 @@
 </head>
 <body>
 
-  <h1>Maximum Run Length Histogram</h1>
+  <!-- Banner -->
+  <header>
+    <h1>Everybody Counts: chance and health</h1>
+    <p>for Soundart Radio</p>
+  </header>
+
+  <h1>Coin tossing conundrums</h1>
 
   <!-- Rounded box for inputs -->
   <div class="input-box">
@@ -64,6 +88,11 @@
 
   <!-- Plotly chart will be drawn inside this DIV -->
   <div id="plotlyDiv"></div>
+
+  <!-- Div to display the mean maximum run length -->
+<div id="meanDiv">
+    Mean maximum run length: <span id="meanValue"></span>
+  </div>
 
   <script src="script.js"></script>
 
