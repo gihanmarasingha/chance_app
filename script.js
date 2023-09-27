@@ -77,7 +77,7 @@ function generateHistogram() {
       marker: {
         color: 'blue',
       },
-      hoverinfro: 'y',
+      hoverinfo: 'y',
       name: 'Frequency',
     };
   
@@ -101,8 +101,14 @@ function generateHistogram() {
       title: 'Maximum Run Length Histogram',
       xaxis: { title: 'Run Length' },
       yaxis: { title: 'Frequency' },
-      showlegend: false
+      showlegend: false,
+      // Set the width dynamically based on the window's inner width
+      width: window.innerWidth <= 767 ? window.innerWidth : null,
     };
+
+  if (window.innerWidth <= 767) {
+    plotLayout.yaxis.title = '';
+  }
   
     // Generate the Plotly chart
     Plotly.newPlot('plotlyDiv', data, plotLayout);

@@ -28,6 +28,13 @@
       margin: 0;
       font-size: 1em;
     }
+
+    #plotContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     /* Style for the rounded box */
   @media (min-width: 768px) {
     .control {
@@ -69,8 +76,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 10px;
-    padding: 20px;
+    margin: 5px;
+    padding: 10px;
     border-radius: 12px;
     border: 1px solid #ccc;
     width : 100%;
@@ -83,7 +90,7 @@
       flex-direction: column;
       align-items: center;
     width: 100%;
-    margin: 10px 0;
+    margin: 5px 0;
   }
   .swipe-control input[type="range"] {
     width: 100%; /* Full width for mobile screens */
@@ -139,8 +146,10 @@
   </div>
 
   <!-- Plotly chart will be drawn inside this DIV -->
-  <div id="plotlyDiv"></div>
-
+  <div id="plotContainer">
+    <div id="plotlyDiv"></div>
+  </div>
+  
   <!-- Div to display the mean maximum run length -->
 <div id="meanDiv">
     Mean maximum run length: <span id="meanValue"></span>
