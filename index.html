@@ -29,7 +29,27 @@
     }
     /* Style for the rounded box */
   @media (min-width: 768px) {
-    
+    .control {
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px auto;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;  /* Set a maximum width for the container */
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* Style for each stack */
+    .swipe-control {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 40%;  /* Set a width for each stack */
+      max-width: calc(0.4 * 800px);  /* Set a maximum width for each stack */
+    }
 
   }
   
