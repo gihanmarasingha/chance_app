@@ -54,6 +54,13 @@
   }
 
   }
+
+  .controls-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;  /* Allows the items to wrap onto the next line if the screen is too small */
+}
   
   @media (max-width : 767px) {
     .control {
@@ -65,6 +72,7 @@
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #ccc;
+    width : 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
@@ -105,6 +113,7 @@
     <p>If you toss a coin 30 times, what will be the longest run of heads or of tails? In this app, you can simulate doing many experiments of 30 tosses (or anywhere up to 2000 tosses). Does this match your intuition?</p>
   </section>
 
+  <div class = "controls-container">
   <div class="control">
     <div class="swipe-control">
       <label for="m">Number of Experiments:</label>
@@ -120,6 +129,7 @@
       <output id="n-output">30</output>
     </div>
   </div>
+</div>
   
 
   <!-- Button container -->
