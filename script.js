@@ -176,52 +176,61 @@ function updateValueAndHistogram(event) {
 document.getElementById("CoinToss").style.display = "block";
 
 function generateClusters() {
-  const numDiseaseCases = 1000; // Number of red points
-  const numFactories = 10; // Number of blue points
+  // Generate 1000 red points for disease cases
+  const redX = Array.from({ length: 1000 }, () => Math.random());
+  const redY = Array.from({ length: 1000 }, () => Math.random());
 
-  const xRed = [];
-  const yRed = [];
-  const xBlue = [];
-  const yBlue = [];
+  // Generate 10 blue points for factories
+  const blueX = Array.from({ length: 10 }, () => Math.random());
+  const blueY = Array.from({ length: 10 }, () => Math.random());
 
-  // Generate red points for disease cases
-  for (let i = 0; i < numDiseaseCases; i++) {
-    xRed.push(Math.random() * 100);
-    yRed.push(Math.random() * 100);
-  }
-
-  // Generate blue points for factories
-  for (let i = 0; i < numFactories; i++) {
-    xBlue.push(Math.random() * 100);
-    yBlue.push(Math.random() * 100);
-  }
-
-  const redPoints = {
-    x: xRed,
-    y: yRed,
+  // Create the trace for disease cases
+  const redTrace = {
+    x: redX,
+    y: redY,
     mode: 'markers',
     type: 'scatter',
-    marker: { color: 'red' }
+    marker: { color: 'red', size: 6 },
+    name: 'Disease'
   };
 
-  const bluePoints = {
-    x: xBlue,
-    y: yBlue,
+  // Create the trace for factories
+  const blueTrace = {
+    x: blueX,
+    y: blueY,
     mode: 'markers',
     type: 'scatter',
-    marker: { color: 'blue' }
+    marker: { color: 'blue', size: 12 },
+    name: 'Factory'
   };
 
-  const clusterData = [redPoints, bluePoints];
+  // Combine the traces
+  const data = [redTrace, blueTrace];
 
-  const clusterLayout = {
-    title: 'Disease Cases and Factories',
-    xaxis: { title: 'X-axis' },
-    yaxis: { title: 'Y-axis' }
+  // Layout options
+  const layout = {
+    xaxis: { showgrid: false, zeroline: false, showticklabels: false },
+    yaxis: { showgrid: false, zeroline: false, showticklabels: false },
+    showlegend: true,
+    legend: { x: 1, xanchor: 'right', y: 1 },
+    shapes: [
+      {
+        type: 'rect',
+        xref: 'x',
+        yref: 'y',
+        x0: 0,
+        y0: 0,
+        x1: 1,
+        y1: 1,
+        line: { color: 'black', width: 1 }
+      }
+    ]
   };
 
-  Plotly.newPlot('clusterPlot', clusterData, clusterLayout);
+  // Generate the Plotly chart
+  Plotly.newPlot('clusterPlot', data, layout);
 }
+
 
 // Show the first tab by default
 document.getElementById("CoinToss").style.display = "block";
