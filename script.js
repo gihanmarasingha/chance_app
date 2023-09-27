@@ -141,7 +141,7 @@ function updateValueAndHistogram(event) {
   document.querySelectorAll('.swipe-control').forEach((input) => {
     input.addEventListener('input', (event) => {
       // Update output value but don't regenerate histogram
-      const output = document.getElementById(event.target.id + "Value");
+      const output = document.getElementById(event.target.id + "-output");
       output.value = event.target.value;
     });
   

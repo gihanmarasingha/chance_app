@@ -47,9 +47,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 40%;  /* Set a width for each stack */
-      max-width: calc(0.4 * 800px);  /* Set a maximum width for each stack */
+      width: 100%
     }
+    .swipe-control input[type="range"] {
+    width: 100%; /* Full width of the parent .swipe-control div */
+  }
 
   }
   
@@ -68,8 +70,14 @@
 
   /* Style the swipe-friendly controls */
   .swipe-control {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
     width: 100%;
     margin: 10px 0;
+  }
+  .swipe-control input[type="range"] {
+    width: 100%; /* Full width for mobile screens */
   }
 }
     /* Style for the button */
@@ -98,16 +106,19 @@
   </section>
 
   <div class="control">
-    <label for="m">Number of Experiments:</label>
-    <input type="range" id="m" min="10" max="5000" value="100" class="swipe-control">
-    <output id="m-output">100</output>
+    <div class="swipe-control">
+      <label for="m">Number of Experiments:</label>
+      <input type="range" id="m" min="10" max="5000" value="100">
+      <output id="m-output">100</output>
+    </div>
   </div>
   
-  <!-- Number of Tosses per Experiment -->
   <div class="control">
-    <label for="n">Number of Tosses per Experiment:</label>
-    <input type="range" id="n" min="5" max="500" value="5" class="swipe-control">
-    <output id="n-output">30</output>
+    <div class="swipe-control">
+      <label for="n">Number of Tosses per Experiment:</label>
+      <input type="range" id="n" min="5" max="500" value="5">
+      <output id="n-output">30</output>
+    </div>
   </div>
   
 
