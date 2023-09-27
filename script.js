@@ -130,3 +130,20 @@ Plotly.relayout('plotlyDiv', {
 });
 generateHistogram();
 }, 250));  // 250 milliseconds delay
+
+function updateValueAndHistogram(event) {
+    const output = document.getElementById(event.target.id + "Value");
+    output.value = event.target.value;
+    generateHistogram();
+  }
+  
+  // Add event listeners for swipe-friendly controls
+  document.querySelectorAll('.swipe-control').forEach((input) => {
+    input.addEventListener('input', (event) => {
+      // Update output value but don't regenerate histogram
+      const output = document.getElementById(event.target.id + "Value");
+      output.value = event.target.value;
+    });
+  
+    input.addEventListener('change', updateValueAndHistogram);  // Regenerate histogram on change
+  });

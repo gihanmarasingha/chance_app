@@ -28,27 +28,23 @@
       font-size: 1em;
     }
     /* Style for the rounded box */
-    .input-box {
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 16px auto;
-      text-align: center;
-      width: 100%;
-      max-width: 500px;  /* Set a maximum width for the container */
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-    /* Style for each stack */
-    .input-stack {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 40%;  /* Set a width for each stack */
-      max-width: calc(0.4 * 800px);  /* Set a maximum width for each stack */
-    }
+    .control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the swipe-friendly controls */
+.swipe-control {
+  width: 100%;
+  margin: 10px 0;
+}
     /* Style for the button */
     .button-container {
       text-align: center;
@@ -74,19 +70,19 @@
     <p>If you toss a coin 30 times, what will be the longest run of heads or of tails? In this app, you can simulate doing many experiments of 30 tosses (or anywhere up to 2000 tosses). Does this match your intuition?</p>
   </section>
 
-  <!-- Rounded box for inputs -->
-  <div class="input-box">
-    <div class="input-stack">
-      <label for="m">Number of experiments:</label>
-      <input type="range" id="m" name="m" min="10" max="5000" value="100">
-      <output id="m-output">1000</output>
-    </div>
-    <div class="input-stack">
-      <label for="n">Number of tosses per experiment:</label>
-      <input type="range" id="n" name="n" min="5" max="500" value="5">
-      <output id="n-output">50</output>
-    </div>
+  <div class="control">
+    <label for="m">Number of Experiments:</label>
+    <input type="range" id="m" min="10" max="5000" value="100" class="swipe-control">
+    <output id="m-output">100</output>
   </div>
+  
+  <!-- Number of Tosses per Experiment -->
+  <div class="control">
+    <label for="n">Number of Tosses per Experiment:</label>
+    <input type="range" id="n" min="5" max="500" value="5" class="swipe-control">
+    <output id="n-output">30</output>
+  </div>
+  
 
   <!-- Button container -->
   <div class="button-container">
