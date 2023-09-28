@@ -279,3 +279,7 @@ function toggleDropdown() {
 document.getElementById("CoinToss").style.display = "block";
 // Generate the initial cluster plot
 generateClusters();
+
+window.onload = function() {
+  generateHistogram();  // Or whatever function you use to draw the chart
+};
