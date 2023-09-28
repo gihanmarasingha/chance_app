@@ -96,12 +96,17 @@ function generateHistogram() {
     // Combine the histogram and curve traces
     const data = [histogramTrace, curveTrace];
   
+    const plotConfig = {
+      displayModeBar: false
+    };
+
     // Layout options
     const plotLayout = {
       title: 'Max. Run Histogram',
       xaxis: { title: 'Run Length' },
       yaxis: { title: 'Frequency' },
       showlegend: false,
+      dragmode: false,
     };
 
   if (window.innerWidth <= 767) {
@@ -110,7 +115,7 @@ function generateHistogram() {
   }
   
     // Generate the Plotly chart
-    Plotly.newPlot('plotlyDiv', data, plotLayout);
+    Plotly.newPlot('plotlyDiv', data, plotLayout, plotConfig);
 }
   
 
@@ -259,10 +264,15 @@ function generateClusters() {
       l: 0,
       r: 0,
     },
+    dragmode: false,
+  };
+
+  const plotConfig = {
+    displayModeBar: false
   };
 
   // Generate the Plotly chart
-  Plotly.newPlot('clusterPlot', data, layout);
+  Plotly.newPlot('clusterPlot', data, layout, plotConfig);
 }
 
 function toggleDropdown() {
