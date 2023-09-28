@@ -98,7 +98,7 @@ function generateHistogram() {
   
     // Layout options
     const plotLayout = {
-      title: 'Maximum Run Length Histogram',
+      title: 'Max. Run Histogram',
       xaxis: { title: 'Run Length' },
       yaxis: { title: 'Frequency' },
       showlegend: false,
@@ -109,7 +109,7 @@ function generateHistogram() {
   }
   
     // Generate the Plotly chart
-    Plotly.newPlot('plotlyDiv', data, plotLayout);
+    Plotly.newPlot('plotlyDiv', data, plotLayout, {responsive: true});
 }
   
 
@@ -257,7 +257,7 @@ function generateClusters() {
   };
 
   // Generate the Plotly chart
-  Plotly.newPlot('clusterPlot', data, layout);
+  Plotly.newPlot('clusterPlot', data, layout, {responsive: true});
 }
 
 function toggleDropdown() {
