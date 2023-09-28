@@ -106,6 +106,7 @@ function generateHistogram() {
 
   if (window.innerWidth <= 767) {
     plotLayout.yaxis.title = '';
+    plotLayout.margin = {l : 0, r : 0};
   }
   
     // Generate the Plotly chart
@@ -253,7 +254,11 @@ function generateClusters() {
         y1: 1,
         line: { color: 'black', width: 1 }
       }
-    ]
+    ],
+    margin: {
+      l: 0,
+      r: 0,
+    },
   };
 
   // Generate the Plotly chart
