@@ -109,7 +109,7 @@ function generateHistogram() {
   }
   
     // Generate the Plotly chart
-    Plotly.newPlot('plotlyDiv', data, plotLayout, {responsive: true});
+    Plotly.newPlot('plotlyDiv', data, plotLayout);
 }
   
 
@@ -257,7 +257,7 @@ function generateClusters() {
   };
 
   // Generate the Plotly chart
-  Plotly.newPlot('clusterPlot', data, layout, {responsive: true});
+  Plotly.newPlot('clusterPlot', data, layout);
 }
 
 function toggleDropdown() {
