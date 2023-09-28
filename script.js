@@ -260,6 +260,15 @@ function generateClusters() {
   Plotly.newPlot('clusterPlot', data, layout);
 }
 
+function toggleDropdown() {
+  const content = document.getElementById("dropdown-content");
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}
+
 
 // Show the first tab by default
 document.getElementById("CoinToss").style.display = "block";

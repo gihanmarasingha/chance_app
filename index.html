@@ -96,7 +96,12 @@
       margin-top: 16px;
     }
 
-    /* Style the tab */
+    /*************************
+
+    TAB STUFF
+
+    ************************/
+
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
@@ -131,6 +136,35 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+
+
+/***************
+
+  CLUSTER CSS
+
+  **************/
+
+  .dropdown-container {
+  margin-top: 20px;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.dropdown-content {
+  display: none;
+  margin-top: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 
   </style>
   
@@ -197,6 +231,14 @@
     <h1>Finding Clusters</h1>
     <p>We've plotted below cases of a disease (in red) and chemical factories (in blue). Can you see a link?</p>
     <div id="clusterPlot" style="width: 100%;"></div> <!-- Container for the cluster plot -->
+
+    <div class="dropdown-container">
+      <button onclick="toggleDropdown()" class="dropdown-btn">A Secret</button>
+      <div id="dropdown-content" class="dropdown-content">
+        <p>In fact, there was no disease and factory data. The plot above is generated completely randomly. However, random data is not <em>uniform</em>: it will naturally contain clusters. We are hardwired to find meaning whenever we perceive a pattern.</p>
+      </div>
+    </div>
+    
   </div>
   
   <footer style="background-color: #f2f2f2; color: #666; text-align: center; padding: 16px; margin-top: 40px;">
